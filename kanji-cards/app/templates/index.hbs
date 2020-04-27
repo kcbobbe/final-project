@@ -1,0 +1,11 @@
+<Nav />
+<div class="container">
+  <div class="row row-cols-md-3 mt-5">
+  {{!-- {{#each @model as |kanji|}}
+  <h1>{{kanji.kanji}}</h1>
+  {{/each}} --}}
+  {{#each @model as |kanji|}}
+  <Flashcard @kanji={{kanji}}/>
+  {{/each}}
+  </div>
+</div>

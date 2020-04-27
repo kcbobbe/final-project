@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-body">
+    {{#if this.isKanji}}
+      <h1 class="card-title">
+        <LinkTo @route="kanji" @model={{@kanji}}>
+          {{@kanji.kanji}}
+        </LinkTo>
+      </h1>
+      <div><strong>{{@kanji.onyomi_ja}}</strong></div>
+      <div>{{@kanji.kunyomi_ja}}</div>
+      <div>
+      <LinkTo @route="grade" @model={{@kanji}}>
+        Grade {{@kanji.kgrade}}
+      </LinkTo>
+      </div>
+    {{else}}
+      <h2 class="card-title">{{@kanji.kmeaning}}</h2>
+    {{/if}}
+    </div>
+
+    {{!-- <p class="card-text"></p> --}}
+    <div class="card-footer">
+      {{#if this.isKanji}}
+        <button type="button" class="btn btn-secondary btn-block" type="button" {{on "click" this.toggleLanguage}}>See Meaning</button>
+      {{else}}
+        <button type="button" class="btn btn-secondary btn-block" type="button" {{on "click" this.toggleLanguage}}>See Kanji</button>
+      {{/if}}
+    </div>
+</div>
