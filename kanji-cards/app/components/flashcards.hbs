@@ -1,0 +1,17 @@
+ <form class="mt-4">
+  {{!-- <div class="form-group"> --}}
+    <label><strong>Search For a Kanji</strong></label>
+    <Input @value={{this.query}} class="form-control form-control-lg"/>
+    <small class="form-text text-muted">
+      Search by kanji, romaji, or kana. Example: 七, なな, シチ, shichi
+    </small>
+  {{!-- </div> --}}
+ </form>
+
+  <div class="row row-cols-md-3 mt-5">
+    <Flashcards::Filter @kanjis ={{@kanjis}} @query={{this.query}} as |results|>
+    {{#each results as |kanji|}}
+      <Flashcard @kanji={{kanji}}/>
+    {{/each}}
+    </Flashcards::Filter>
+  </div>
