@@ -11,4 +11,46 @@ router.get("/api/kanji", (req, res) => {
   })
 })
 
+// router.get("/api/grade/1", (req, res) => {
+//   Kanji.find({kgrade: 1})
+//   .then(dbKanji => {
+//     res.json(dbKanji);
+//   })
+//   .catch(err => {
+//     res.status(400).json(err);
+//   })
+// })
+
+
+// router.get("/api/grade/2", (req, res) => {
+//   Kanji.find({kgrade: 2})
+//   .then(dbKanji => {
+//     res.json(dbKanji);
+//   })
+//   .catch(err => {
+//     res.status(400).json(err);
+//   })
+// })
+
+router.get("/api/grade/:kgrade", (req, res) => {
+  Kanji.find({kgrade: req.params.kgrade})
+  .then(dbKanji => {
+    res.json(dbKanji);
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  })
+})
+
+router.get("/api/kanji/:id", (req, res) => {
+  Kanji.findOne({_id: req.params.id})
+  .then(dbKanji => {
+    res.json(dbKanji);
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  })
+})
+
+
 module.exports = router;
