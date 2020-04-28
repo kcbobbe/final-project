@@ -1,13 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
-const port = process.env.PORT || 3000;
 
-require("./models/kanji")
+const PORT = process.env.PORT || 3000;
 
 const app = express();
-
-const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/kanjicard')
 app.use(express.static(__dirname + '/public'));
@@ -16,11 +14,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 
 
-var router = express.Router();
-app.use('/', router);
-require('./app/router')(router); 
+app.use(require('./routes/api.js')); 
 
-app.listen(port);
-
-
-exports = module.exports = app;
+// exports = module.exports = app;
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}!`);
+});

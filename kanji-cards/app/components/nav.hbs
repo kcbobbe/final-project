@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Kanji Cards</a>
+  <LinkTo @route="index">
+    <div class="navbar-brand">Kanji Cards</div>
+  </LinkTo>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,27 +9,47 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <LinkTo @route="index">
+          <div class="nav-link" href="/">Home <span class="sr-only">(current)</span></div>
+        </LinkTo>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">List of Kanji</a>
+        <LinkTo @route="index">
+          <div class="nav-link">List of Kanji</div>
+        </LinkTo>
       </li>
       <li>
-        <a class="nav-link" href="#">Your Cards</a>
+        <div class="nav-link">Your Cards</div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Filter Kanji By Grade
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Grade 1</a>
-          <a class="dropdown-item" href="#">Grade 2</a>
-          <a class="dropdown-item" href="#">Grade 3</a>
-          <a class="dropdown-item" href="#">Grade 4</a>
-          <a class="dropdown-item" href="#">Grade 5</a>
-          <a class="dropdown-item" href="#">Grade 6</a>
-          <a class="dropdown-item" href="#">Grade 7</a>
-          <a class="dropdown-item" href="#">Grade 8</a>
+          <LinkTo @route="grade" @model={{1}}>
+            <div class="dropdown-item">Grade 1</div>
+          </LinkTo>
+            <LinkTo @route="grade" @model={{2}}>
+          <div class="dropdown-item">Grade 2</div>
+          </LinkTo>
+            <LinkTo @route="grade" @model={{3}}>
+          <div class="dropdown-item">Grade 3</div>
+          </LinkTo>
+            <LinkTo @route="grade" @model={{4}}>
+          <div class="dropdown-item">Grade 4</div>
+          </LinkTo>
+           <LinkTo @route="grade" @model={{5}}>
+          <div class="dropdown-item">Grade 5</div>
+          </LinkTo>
+           <LinkTo @route="grade" @model={{6}}>
+          <div class="dropdown-item">Grade 6</div>
+          </LinkTo>
+           <LinkTo @route="grade" @model={{7}}>
+          <div class="dropdown-item">Grade 7</div>
+          </LinkTo>
+           <LinkTo @route="grade" @model={{8}}>
+          <div class="dropdown-item">Grade 8</div>
+          </LinkTo>
         </div>
       </li>
     </ul>

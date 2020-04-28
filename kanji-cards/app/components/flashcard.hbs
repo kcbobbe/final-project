@@ -8,8 +8,9 @@
       </h1>
       <div><strong>{{@kanji.onyomi_ja}}</strong></div>
       <div>{{@kanji.kunyomi_ja}}</div>
+      <div>{{@kanji.kstroke}} kanji stroke</div>
       <div>
-      <LinkTo @route="grade" @model={{@kanji}}>
+      <LinkTo @route="grade" @model={{@kanji.kgrade}}>
         Grade {{@kanji.kgrade}}
       </LinkTo>
       </div>
