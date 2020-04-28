@@ -1,9 +1,1 @@
-{{!-- <Grade @kanji={{@model}} /> --}}
-<Nav />
-<div class="container">
-  <div class="row row-cols-md-3 mt-5">
-  {{#each @model as |kanji|}}
-  <Flashcard @kanji={{kanji}}/>
-  {{/each}}
-  </div>
-</div>
+<Flashcards @kanjis={{@model}}/>
