@@ -1,9 +1,7 @@
-// import JSONAPIAdapter from '@ember-data/adapter/json-api';
+import RESTAdapter from '@ember-data/adapter/rest';
 
-// export default class ApplicationAdapter extends JSONAPIAdapter {
-//   namespace = 'api';
-
-//   buildURL(...args) {
-//     return `${super.buildURL(...args)}.json`;
-//   }
-// }
+export default RESTAdapter.extend({
+  namespace: 'api'
+  // // can target other hosts, might need to use this as a backup
+  // host: 'https://api.example.com'
+});

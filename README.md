@@ -17,3 +17,6 @@ in a separate terminal window, (in ember project directory) ember serve --proxy 
 
 to build ember project in public folder
 in ember project directory, ember build --environment=production --output-path=../public
+
+Kanji data from Kanji Alive - Creative Commons 4.0 International License
+https://github.com/kanjialive/kanji-data-media/tree/master/language-data
