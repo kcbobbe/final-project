@@ -12,5 +12,5 @@ const kanjiSchema = new Schema({
   examples: Array
 })
 
-module.exports = mongoose.model("Kanji", kanjiSchema);
+module.exports = mongoose.model('Kanji', kanjiSchema);
 

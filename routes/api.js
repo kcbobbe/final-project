@@ -1,4 +1,6 @@
+const passport = require('passport');
 const router = require("express").Router();
+const Account = require("../models/account.js")
 const Kanji = require("../models/kanji.js");
 
 router.get("/api/kanjis", (req, res) => {
@@ -55,6 +57,28 @@ router.get("/api/kanjis/:id", (req, res) => {
     res.status(400).json(err);
   })
 })
+
+// AUTH
+
+router.post('/register', function(req, res, next) {
+  console.log('registering user');
+  Account.register(new Account({username: req.body.username}), req.body.password, function(err) {
+    if (err) {
+      console.log('error while user register!', err);
+      return next(err);
+    }
+
+    console.log('user registered!');
+
+    res.redirect('/');
+  });
+});
+
+router.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
+  res.redirect('/');
+});
+
+
 
 
 module.exports = router;
