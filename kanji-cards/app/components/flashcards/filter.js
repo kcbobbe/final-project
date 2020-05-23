@@ -12,6 +12,7 @@ export default class FlashcardsFilterComponent extends Component {
       || kanji.kunyomi_ja.includes(query)
       || kanji.onyomi_ja.includes(query)
       // || kanji.name.includes(query)
+      || kanji.kgrade === (parseInt(query))
       || kanji.kunyomi.includes(query)
       || kanji.onyomi.includes(query)
       ));

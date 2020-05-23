@@ -10,8 +10,10 @@
 
   <div class="row row-cols-md-3 mt-5">
     <Flashcards::Filter @kanjis ={{@kanjis}} @query={{this.query}} as |results|>
-    {{#each results as |kanji|}}
-      <Flashcard @kanji={{kanji}}/>
-    {{/each}}
+    {{!-- {{#if this.query}} --}}
+      {{#each results as |kanji|}}
+        <Flashcard @kanji={{kanji}}/>
+      {{/each}}
+    {{!-- {{/if}} --}}
     </Flashcards::Filter>
   </div>

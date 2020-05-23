@@ -69,7 +69,7 @@ router.post('/register', function(req, res, next) {
     }
 
     console.log('user registered!');
-
+    // redo this redirect when hooking up with ember?
     res.redirect('/');
   });
 });
