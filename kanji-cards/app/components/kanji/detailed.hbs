@@ -1,6 +1,5 @@
 <div class="card">
   <div class="card-header">
-
     <div class="row">
       <div class="col">
         <h2>{{@kanji.kanji}}</h2>
@@ -19,8 +18,8 @@
         <div>Strokes: {{@kanji.kstroke}}</div>
       </div>
     </div>
-
   </div>
+
   <div class="card-body">
     <h5 class="card-title">Examples</h5>
   <div class="card-text">
@@ -31,9 +30,11 @@
       {{/each}}
       </div>
     {{/each}}
+    {{#if this.notAdded}}
+    <button {{action "addToFavorites" @kanji.kanji}}type="button" class="btn btn-info" style="margin-top:3em">Add to favorites</button>
+    {{else}}
+    <h3>{{@kanji.kanji}} added to your favorites!</h3>
+    {{/if}}
   </div>
   </div>
 </div>
-
-
-

@@ -4,7 +4,7 @@ const Account = require("../models/account.js")
 const Kanji = require("../models/kanji.js");
 
 router.get("/api/kanjis", (req, res) => {
-  Kanji.find({})
+  Kanji.model.find({})
   .then(dbKanji => {
     res.json({
       "kanjis": dbKanji
@@ -37,7 +37,7 @@ router.get("/api/kanjis", (req, res) => {
 // })
 
 router.get("/api/grade/:kgrade", (req, res) => {
-  Kanji.find({kgrade: req.params.kgrade})
+  Kanji.model.find({kgrade: req.params.kgrade})
   .then(dbKanji => {
     res.json(dbKanji);
   })
@@ -47,7 +47,7 @@ router.get("/api/grade/:kgrade", (req, res) => {
 })
 
 router.get("/api/kanjis/:id", (req, res) => {
-  Kanji.findOne({_id: req.params.id})
+  Kanji.model.findOne({_id: req.params.id})
   .then(dbKanji => {
     res.json({
       "kanji": dbKanji
@@ -58,6 +58,47 @@ router.get("/api/kanjis/:id", (req, res) => {
   })
 })
 
+router.get("/api/accounts", (req, res) => {
+  Account.find({})
+  .then(dbKanji => {
+    res.json({
+      "accounts": dbKanji
+    });
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  })
+})
+
+router.get("/api/accounts/:id", (req, res) => {
+  Account.findOne({_id: req.params.id})
+  .then(dbKanji => {
+    res.json({
+      "account": dbKanji
+    });
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  })
+})
+
+
+// adding to favorites
+
+router.put("/api/accounts/:id", (req, res) => {
+  const addedFavorite = req.body;
+  Account.update(
+    {_id: req.params.id},
+    { $push: { favorites: addedFavorite }},
+    (err, data) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(data)
+    }
+  }
+  )
+})
 // AUTH
 
 router.post('/register', function(req, res, next) {
