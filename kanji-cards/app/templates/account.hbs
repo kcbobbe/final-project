@@ -1,5 +1,4 @@
-{{#each this.model as |account|}}
-  {{account.username}}
-  {{account.favorites}}
+<h1>{{this.model.username}}'s favorite kanji</h1>
+{{#each this.model.favorites as |favorite|}}
+  <Kanji::Detailed @kanji={{favorite}} @notAdded=false />
 {{/each}}
-
