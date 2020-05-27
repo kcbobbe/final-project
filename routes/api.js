@@ -86,10 +86,14 @@ router.get("/api/accounts/:id", (req, res) => {
 // adding to favorites
 
 router.put("/api/accounts/:id", (req, res) => {
-  const addedFavorite = req.body;
+  const addedFavorite = req.body.account.favorites;
+
+  console.log(req.body.account.favorites, "req.body is this")
   Account.update(
     {_id: req.params.id},
-    { $push: { favorites: addedFavorite }},
+    { $set: { favorites: addedFavorite }},
+    // { favorites: addedFavorite },
+
     (err, data) => {
       if (err) {
         res.json(err);
