@@ -14,4 +14,5 @@ Router.map(function() {
   this.route('kanji', {path: '/kanji/:id' })
   this.route('grade', {path: '/grade/:kgrade'})
   // this.route('page-not-found', {path: '/*wildcard'});
+  this.route('account', {path: '/account/:id'});
 });

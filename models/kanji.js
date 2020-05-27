@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const kanjiSchema = new Schema({
+const KanjiSchema = new Schema({
   kanji: String,
   kmeaning: String,
   kgrade: Number,
@@ -12,5 +12,10 @@ const kanjiSchema = new Schema({
   examples: Array
 })
 
-module.exports = mongoose.model('Kanji', kanjiSchema);
+const Kanji = mongoose.model('Kanji', KanjiSchema);
+
+module.exports = {
+  model: Kanji,
+  schema: KanjiSchema
+}
 

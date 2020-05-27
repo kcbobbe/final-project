@@ -1,9 +1,40 @@
-<h2>{{@kanji.kanji}}</h2>
-<div>{{@kanji.kmeaning}}</div>
-<div>Grade {{@kanji.kgrade}}</div>
-<div>{{@kanji.kunyomi}} {{@kanji.kunyomi_ja}}</div>
-<div>{{@kanji.onyomi}} {{@kanji.onyomi_ja}}</div>
-<div>strokes {{@kanji.kstroke}}</div>
-{{#each @kanji.examples as |example| }}
-<div>{{example}}</div>
-{{/each}}
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        <h2>{{@kanji.kanji}}</h2>
+        <div>{{@kanji.kmeaning}}</div>
+      </div>
+      <div class="col">
+        <div>
+          <strong>onyomi:</strong> {{@kanji.onyomi_ja}} ・ <span>{{@kanji.onyomi}}</span>
+        </div>
+        <div>
+          <strong>kunyomi:</strong> {{@kanji.kunyomi_ja}} ・ <span>{{@kanji.kunyomi}}</span>
+        </div>
+      </div>
+      <div class="col">
+        <div>Grade {{@kanji.kgrade}}</div>
+        <div>Strokes: {{@kanji.kstroke}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">Examples</h5>
+  <div class="card-text">
+    {{#each @kanji.examples as |examples| }}
+      <div>
+      {{#each examples as |example| }}
+        <span>{{example}}</span>
+      {{/each}}
+      </div>
+    {{/each}}
+    {{#if this.notAdded}}
+    <button {{action "addToFavorites" @kanji}}type="button" class="btn btn-info" style="margin-top:3em">Add to favorites</button>
+    {{else}}
+    <h3>{{@kanji.kanji}} added to your favorites!</h3>
+    {{/if}}
+  </div>
+  </div>
+</div>

@@ -8,6 +8,9 @@ https://www.programwitherik.com/how-to-setup-your-ember-project-with-mongo-and-n
 
 https://zaiste.net/importing_json_into_mongodb/
 
+very helpful for setting up passport-local-mongoose auth
+https://github.com/saintedlama/passport-local-mongoose/tree/master/examples/login
+
 mongoimport --db <db-name> --collection <coll-name> --type json --file seed.json
 --jsonArray
 If the specified collection doesn't exist, it will be automatically created; otherwise new documents will be appended to the existing one.
