@@ -36,7 +36,7 @@ passport.deserializeUser(Account.deserializeUser());
 
 // mongoose.connect('mongodb://localhost/kanjicard')
 
-mongoose.connect('mongodb://localhost/kanjicard', { useNewUrlParser: true, useUnifiedTopology: true }, function(err) {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/kanjicard', { useNewUrlParser: true, useUnifiedTopology: true }, function(err) {
   if (err) {
     console.log('Could not connect to mongodb on localhost.');
   }
