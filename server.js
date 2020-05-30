@@ -25,9 +25,10 @@ app.use(session({keys: ['secretkey1', 'secretkey2', '...']}));
 // Configure passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use(require('./routes/api.js')); 
 
-// Configure passport-local to use account model for authentication
+// Configure passport-local
 const Account = require('./models/account');
 passport.use(new LocalStrategy(Account.authenticate()));
 

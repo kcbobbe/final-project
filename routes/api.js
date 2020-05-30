@@ -15,27 +15,6 @@ router.get("/api/kanjis", (req, res) => {
   })
 })
 
-// router.get("/api/grade/1", (req, res) => {
-//   Kanji.find({kgrade: 1})
-//   .then(dbKanji => {
-//     res.json(dbKanji);
-//   })
-//   .catch(err => {
-//     res.status(400).json(err);
-//   })
-// })
-
-
-// router.get("/api/grade/2", (req, res) => {
-//   Kanji.find({kgrade: 2})
-//   .then(dbKanji => {
-//     res.json(dbKanji);
-//   })
-//   .catch(err => {
-//     res.status(400).json(err);
-//   })
-// })
-
 router.get("/api/grade/:kgrade", (req, res) => {
   Kanji.model.find({kgrade: req.params.kgrade})
   .then(dbKanji => {
@@ -122,8 +101,5 @@ router.post('/register', function(req, res, next) {
 router.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
   res.redirect('/');
 });
-
-
-
 
 module.exports = router;
