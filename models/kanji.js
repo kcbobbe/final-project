@@ -9,7 +9,8 @@ const KanjiSchema = new Schema({
   kunyomi: String,
   onyomi_ja: String,
   onyomi: String,
-  examples: Array
+  examples: Array,
+  kstroke: Number
 })
 
 const Kanji = mongoose.model('Kanji', KanjiSchema);

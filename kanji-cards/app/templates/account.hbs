@@ -1,4 +1,9 @@
-<h1>{{this.model.username}}'s favorite kanji</h1>
-{{#each this.model.favorites as |favorite|}}
-  <Kanji::Detailed @kanji={{favorite}} @notAdded=false />
-{{/each}}
+<div class="container">
+  <h1 class="m-5">{{this.model.username}}'s favorite kanji</h1>
+    {{#each this.model.favorites as |favorite|}}
+      <div class="m-5">
+        <Kanji::Detailed @kanji={{favorite}} @notAdded=false />
+      </div>
+    {{/each}}
+</div>
+
