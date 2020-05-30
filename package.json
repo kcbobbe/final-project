@@ -5,14 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'kanji-cards/*'\" \"npm run client\"",
-    "client": "cd kanji-cards && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd kanji-cards && npm install",
-    "build": "cd kanji-cards && npm run build",
-    "heroku-postbuild": "npm run build"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
