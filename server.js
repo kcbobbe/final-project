@@ -13,7 +13,6 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-app.use(express.static(__dirname + '/public'));
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -44,6 +43,7 @@ mongoose.connect('mongodb://localhost/kanjicard', { useNewUrlParser: true, useUn
 });
 mongoose.set('useCreateIndex', true);
 
+app.use(express.static(__dirname + '/public'));
 
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));
