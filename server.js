@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+app.use(express.static(__dirname + '/public'));
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -24,10 +25,9 @@ app.use(session({keys: ['secretkey1', 'secretkey2', '...']}));
 // Configure passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(require('./routes/api.js')); 
 
-// Configure passport-local
+// Configure passport-local to use account model for authentication
 const Account = require('./models/account');
 passport.use(new LocalStrategy(Account.authenticate()));
 
@@ -43,7 +43,6 @@ mongoose.connect('mongodb://localhost/kanjicard', { useNewUrlParser: true, useUn
 });
 mongoose.set('useCreateIndex', true);
 
-app.use(express.static(__dirname + '/public'));
 
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));
