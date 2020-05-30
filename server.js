@@ -36,13 +36,17 @@ passport.deserializeUser(Account.deserializeUser());
 
 // mongoose.connect('mongodb://localhost/kanjicard')
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/kanjicard', { useNewUrlParser: true, useUnifiedTopology: true }, function(err) {
+mongoose.connect('mongodb://localhost/kanjicard', { useNewUrlParser: true, useUnifiedTopology: true }, function(err) {
   if (err) {
     console.log('Could not connect to mongodb on localhost.');
   }
 });
 mongoose.set('useCreateIndex', true);
 
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
+});
 
 // exports = module.exports = app;
 app.listen(PORT, () => {
