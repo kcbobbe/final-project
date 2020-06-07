@@ -30,11 +30,13 @@
       {{/each}}
       </div>
     {{/each}}
-    {{#if this.notAdded}}
-    <button {{action "addToFavorites" @kanji}}type="button" class="btn btn-info" style="margin-top:3em">Add to favorites</button>
-    {{else}}
-    <h3>{{@kanji.kanji}} added to your favorites!</h3>
-    {{/if}}
+    {{#unless @showButton}}
+      {{#if this.notAdded}}
+      <button {{action "addToFavorites" @kanji}}type="button" class="btn btn-info" style="margin-top:3em">Add to favorites</button>
+      {{else}}
+      <h3>{{@kanji.kanji}} added to your favorites!</h3>
+      {{/if}}
+    {{/unless}}
   </div>
   </div>
 </div>

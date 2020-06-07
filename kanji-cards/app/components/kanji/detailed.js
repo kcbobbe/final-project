@@ -10,7 +10,7 @@ export default class DetailedComponent extends Component {
       this.notAdded = !this.notAdded;
     }
     @action addToFavorites(x) {
-      this.store.findRecord('account', '5ecdd2ffdcee974b9eb11c39' ).then(function(user) {
+      this.store.findRecord('account', '5ed98afe91aaa6517a53d9cc' ).then(function(user) {
         // ...after the record has loaded
         user.favorites.push(
           {

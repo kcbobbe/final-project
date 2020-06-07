@@ -15,6 +15,14 @@ const app = express();
 
 app.use(express.static(__dirname + '/public'));
 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/kanjicard";
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, function(err) {
+  if (err) {
+    console.log('Could not connect to mongodb.');
+  }
+});
+
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
@@ -36,11 +44,8 @@ passport.deserializeUser(Account.deserializeUser());
 
 // mongoose.connect('mongodb://localhost/kanjicard')
 
-mongoose.connect('mongodb://localhost/kanjicard', { useNewUrlParser: true, useUnifiedTopology: true }, function(err) {
-  if (err) {
-    console.log('Could not connect to mongodb on localhost.');
-  }
-});
+
+
 mongoose.set('useCreateIndex', true);
 
 

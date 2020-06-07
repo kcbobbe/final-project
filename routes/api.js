@@ -4,7 +4,7 @@ const Account = require("../models/account.js")
 const Kanji = require("../models/kanji.js");
 
 router.get("/api/kanjis", (req, res) => {
-  Kanji.model.find({})
+  Kanji.model.find({}).sort({kgrade:1})
   .then(dbKanji => {
     res.json({
       "kanjis": dbKanji

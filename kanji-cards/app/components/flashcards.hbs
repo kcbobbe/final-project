@@ -1,3 +1,4 @@
+ {{#unless @hideSearch}}
  <form class="mt-4">
   {{!-- <div class="form-group"> --}}
     <label><strong>Search For a Kanji</strong></label>
@@ -7,7 +8,7 @@
     </small>
   {{!-- </div> --}}
  </form>
-
+{{/unless}}
   <div class="row row-cols-md-3 mt-5">
     <Flashcards::Filter @kanjis ={{@kanjis}} @query={{this.query}} as |results|>
     {{!-- {{#if this.query}} --}}

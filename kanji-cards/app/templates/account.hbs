@@ -2,8 +2,7 @@
   <h1 class="m-5">{{this.model.username}}'s favorite kanji</h1>
     {{#each this.model.favorites as |favorite|}}
       <div class="m-5">
-        <Kanji::Detailed @kanji={{favorite}} @notAdded=false />
+        <Kanji::Detailed @kanji={{favorite}} @showButton=false />
       </div>
     {{/each}}
 </div>
-
