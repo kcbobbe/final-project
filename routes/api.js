@@ -61,7 +61,6 @@ router.get("/api/accounts/:id", (req, res) => {
   })
 })
 
-
 // adding to favorites
 
 router.put("/api/accounts/:id", (req, res) => {
